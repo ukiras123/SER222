@@ -12,7 +12,17 @@ public class YamamotoMatrix implements Matrix {
 
 	//Constractor
 	YamamotoMatrix(int[][] data) {
-		this.data = data;
+		if(data.length < 1) {
+			this.data = new int[0][0];
+		} else {
+			int[][] newData = new int[data.length][data[0].length];
+			for(int x = 0; x < data.length; x ++) {
+				for(int y = 0; y < data.length; y ++) {
+					newData[x][y] = data[x][y];
+				}
+			}
+			this.data = newData;
+		}
 	}
 
 	public int getElement(int y, int x) {
