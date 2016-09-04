@@ -108,6 +108,10 @@ public class BaseDeque<Item> implements Deque<Item> {
 	
 	public Item dequeueFront() throws NoSuchElementException {
 		
+		if(isEmpty()){
+		     throw new NoSuchElementException();
+		}
+		
 		LinearNode<Item> lastFront = front;
 		front = front.getNext();
 		front.setLast(null);
@@ -118,6 +122,10 @@ public class BaseDeque<Item> implements Deque<Item> {
 
 	public Item dequeueBack() throws NoSuchElementException {
 		
+		if(isEmpty()){
+		     throw new NoSuchElementException();
+		}
+		
 		LinearNode<Item> lastRear = rear;
 		rear = rear.getLast();
 		rear.setNext(null);
@@ -127,12 +135,20 @@ public class BaseDeque<Item> implements Deque<Item> {
 	}
 	
 	public Item first() throws NoSuchElementException {
-		// TODO Auto-generated method stub
+		
+		if(isEmpty()){
+		     throw new NoSuchElementException();
+		}
+
 		return front.getElement();
 	}
 	
 	public Item last() throws NoSuchElementException {
-		// TODO Auto-generated method stub
+		
+		if(isEmpty()){
+		     throw new NoSuchElementException();
+		}
+		
 		return rear.getElement();
 	}
 
